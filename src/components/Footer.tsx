@@ -8,8 +8,8 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-blue-400">MTS</span>
-              <span className="ml-2 text-lg font-semibold">
+              
+              <span className="text-lg font-semibold">
                 Mukilteo Technical Solutions
               </span>
             </div>

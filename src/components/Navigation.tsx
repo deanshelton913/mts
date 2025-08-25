@@ -10,7 +10,6 @@ export default function Navigation() {
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
-    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -20,8 +19,8 @@ export default function Navigation() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-blue-600">MTS</span>
-              <span className="ml-2 text-lg font-semibold text-gray-800">
+              
+              <span className="text-lg font-semibold text-gray-800">
                 Mukilteo Technical Solutions
               </span>
             </Link>
