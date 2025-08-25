@@ -120,7 +120,7 @@ export default function HomePage() {
             <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-blue-100 mb-6">
-                Let's discuss how we can help your business establish a strong online presence and leverage technology for growth.
+                Let&apos;s discuss how we can help your business establish a strong online presence and leverage technology for growth.
               </p>
               <Link
                 href="/contact"
@@ -141,7 +141,7 @@ export default function HomePage() {
             Transform Your Business Today
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Don't let technology hold your business back. Partner with experts who understand your needs and can deliver results.
+            Don&apos;t let technology hold your business back. Partner with experts who understand your needs and can deliver results.
           </p>
           <Link
             href="/contact"

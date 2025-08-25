@@ -87,7 +87,7 @@ export default function PortfolioPage() {
               Our Portfolio
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Discover how we've helped small businesses transform their operations and achieve remarkable results through innovative technical solutions.
+              Discover how we&apos;ve helped small businesses transform their operations and achieve remarkable results through innovative technical solutions.
             </p>
           </div>
         </div>
@@ -151,7 +151,7 @@ export default function PortfolioPage() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our clients have to say about working with Mukilteo Technical Solutions.
+              Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with Mukilteo Technical Solutions.
             </p>
           </div>
           
@@ -164,7 +164,7 @@ export default function PortfolioPage() {
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4 italic">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
                 <div>
                   <p className="font-semibold text-gray-900">{testimonial.name}</p>
@@ -229,7 +229,7 @@ export default function PortfolioPage() {
             <div className="bg-blue-600 rounded-lg p-8">
               <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
               <p className="text-blue-100 mb-6">
-                Let's discuss how we can help your business achieve similar results. Every project starts with a conversation about your goals and challenges.
+                Let&apos;s discuss how we can help your business achieve similar results. Every project starts with a conversation about your goals and challenges.
               </p>
               <Link
                 href="/contact"

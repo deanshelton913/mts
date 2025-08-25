@@ -170,14 +170,14 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Ongoing Support</h3>
-                  <p className="text-gray-300">We don't just build solutions - we provide ongoing support and maintenance.</p>
+                  <p className="text-gray-300">We don&apos;t just build solutions - we provide ongoing support and maintenance.</p>
                 </div>
               </div>
             </div>
             <div className="bg-blue-600 rounded-lg p-8">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="text-blue-100 mb-6">
-                Let's discuss your project and how we can help your business succeed with the right technical solutions.
+                Let&apos;s discuss your project and how we can help your business succeed with the right technical solutions.
               </p>
               <Link
                 href="/contact"
@@ -195,10 +195,10 @@ export default function ServicesPage() {
       <section className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Let's Build Something Great Together
+            Let&apos;s Build Something Great Together
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Whether you need a new website, IT consulting, or ongoing technical support, we're here to help your business thrive.
+            Whether you need a new website, IT consulting, or ongoing technical support, we&apos;re here to help your business thrive.
           </p>
           <Link
             href="/contact"

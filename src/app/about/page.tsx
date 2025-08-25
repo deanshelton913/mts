@@ -65,10 +65,10 @@ export default function AboutPage() {
                   Founded with a vision to bridge the technology gap for small businesses, Mukilteo Technical Solutions was born from the recognition that many local businesses struggle to establish and maintain a strong online presence.
                 </p>
                 <p>
-                  With over two decades of experience in the technology industry, our founder has witnessed firsthand how the right technical solutions can transform a business. From simple websites to complex digital transformations, we've helped countless small businesses leverage technology to grow and compete in today's digital marketplace.
+                  With over two decades of experience in the technology industry, our founder has witnessed firsthand how the right technical solutions can transform a business. From simple websites to complex digital transformations, we&apos;ve helped countless small businesses leverage technology to grow and compete in today&apos;s digital marketplace.
                 </p>
                 <p>
-                  Based in Mukilteo, Washington, we're proud to serve our local community and surrounding areas. We understand the unique challenges that small businesses face and are committed to providing personalized, cost-effective solutions that drive real results.
+                  Based in Mukilteo, Washington, we&apos;re proud to serve our local community and surrounding areas. We understand the unique challenges that small businesses face and are committed to providing personalized, cost-effective solutions that drive real results.
                 </p>
               </div>
             </div>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 Local Business, Local Focus
               </h2>
               <p className="text-xl text-gray-300 mb-8">
-                As a Mukilteo-based company, we're deeply invested in the success of our local business community. We understand the unique challenges and opportunities that small businesses in our area face.
+                As a Mukilteo-based company, we&apos;re deeply invested in the success of our local business community. We understand the unique challenges and opportunities that small businesses in our area face.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
@@ -203,7 +203,7 @@ export default function AboutPage() {
             <div className="bg-blue-600 rounded-lg p-8">
               <h3 className="text-2xl font-bold mb-4">Ready to Partner With Us?</h3>
               <p className="text-blue-100 mb-6">
-                Let's discuss how we can help your business leverage technology for growth and success. We're here to be your trusted technology partner.
+                Let&apos;s discuss how we can help your business leverage technology for growth and success. We&apos;re here to be your trusted technology partner.
               </p>
               <Link
                 href="/contact"
@@ -221,7 +221,7 @@ export default function AboutPage() {
       <section className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Let's Build the Future Together
+            Let&apos;s Build the Future Together
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
             Join the many small businesses that have transformed their operations and grown their success with our technical solutions.
