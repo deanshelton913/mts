@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mukilteo Technical Solutions Website
 
-## Getting Started
+A professional website for Mukilteo Technical Solutions, a small business providing technical solutions to help other small businesses establish their online presence.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Modern Design**: Clean, professional design with responsive layout
+- **Fast Performance**: Built with Next.js 14 and optimized for speed
+- **SEO Optimized**: Proper meta tags and structured data
+- **Contact Forms**: Functional contact forms for lead generation
+- **Mobile Responsive**: Works perfectly on all devices
+- **Accessibility**: WCAG compliant design
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Heroicons
+- **Deployment**: Vercel (recommended)
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── about/             # About page
+│   ├── contact/           # Contact page
+│   ├── portfolio/         # Portfolio page
+│   ├── services/          # Services page
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Homepage
+├── components/            # Reusable components
+│   ├── Navigation.tsx     # Navigation component
+│   └── Footer.tsx         # Footer component
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ 
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd mts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run the development server:
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🌐 Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
+
+### Manual Deployment
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. Start the production server:
+```bash
+npm start
+```
+
+## 📧 Contact Form Setup
+
+The contact form currently simulates submission. To make it functional, you can:
+
+1. **Use a form service** like Formspree, Netlify Forms, or similar
+2. **Set up an API route** in Next.js to handle form submissions
+3. **Integrate with your email service** like SendGrid or AWS SES
+
+## 🎨 Customization
+
+### Colors
+The website uses a blue color scheme. You can customize colors in the Tailwind classes throughout the components.
+
+### Content
+Update the content in each page component to match your business:
+- Company information
+- Services offered
+- Contact details
+- Portfolio projects
+
+### Images
+Replace emoji placeholders with actual images for a more professional look.
+
+## 📱 SEO Optimization
+
+The website includes:
+- Proper meta tags
+- Open Graph tags
+- Structured data
+- Semantic HTML
+- Fast loading times
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env.local` file for any environment-specific configuration:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+```
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Support
+
+For support or questions about this website, contact Mukilteo Technical Solutions.
+
+---
+
+Built with ❤️ by Mukilteo Technical Solutions
