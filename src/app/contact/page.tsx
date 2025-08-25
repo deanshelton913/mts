@@ -40,7 +40,7 @@ export default function ContactPage() {
         service: '',
         message: '',
       });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -78,7 +78,7 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Ready to transform your business with professional technical solutions? Let's discuss your project.
+              Ready to transform your business with professional technical solutions? Let&apos;s discuss your project.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
               
               {submitStatus === 'success' && (
                 <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-6">
-                  Thank you for your message! We'll get back to you within 24 hours.
+                  Thank you for your message! We&apos;ll get back to you within 24 hours.
                 </div>
               )}
               
@@ -220,7 +220,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Ready to discuss your project? We're here to help you find the right technical solutions for your business.
+                  Ready to discuss your project? We&apos;re here to help you find the right technical solutions for your business.
                 </p>
               </div>
 
@@ -266,7 +266,7 @@ export default function ContactPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Don't wait to transform your business. Contact us today for a free consultation and quote.
+            Don&apos;t wait to transform your business. Contact us today for a free consultation and quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
