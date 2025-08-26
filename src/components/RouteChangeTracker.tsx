@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
 declare global {
   interface Window {
@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-export default function RouteChangeTracker() {
+function RouteChangeTrackerInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -18,13 +18,17 @@ export default function RouteChangeTracker() {
       const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
       
       // Track pageview in GA4
-      window.gtag('config', 'G-QB3GZSX1J0', {
-        page_path: url,
-        page_title: document.title,
-      });
+      const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+      if (GA_ID) {
+        window.gtag('config', GA_ID, {
+          page_path: url,
+          page_title: document.title,
+        });
+      }
       
       // Track pageview in Google Ads
-      window.gtag('config', 'AW-1005222920', {
+      const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-1005222920';
+      window.gtag('config', ADS_ID, {
         page_path: url,
         page_title: document.title,
       });
@@ -32,4 +36,12 @@ export default function RouteChangeTracker() {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+export default function RouteChangeTracker() {
+  return (
+    <Suspense fallback={null}>
+      <RouteChangeTrackerInner />
+    </Suspense>
+  );
 }
