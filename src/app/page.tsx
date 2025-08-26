@@ -115,10 +115,16 @@ export default function HomePage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+        <div 
+          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+          style={{ 
+            opacity: Math.max(0, 1 - (scrollY / 500)),
+            transform: `translateX(-50%) translateY(${Math.max(0, 20 - (scrollY / 10))}px)`
+          }}
+        >
           <div className="flex flex-col items-center text-purple-300 text-sm">
-            <span className="mb-2 opacity-70">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-purple-300/50 rounded-full flex justify-center">
+            <span className="mb-2 opacity-70 text-white drop-shadow-lg">Scroll to explore</span>
+            <div className="w-6 h-10 border-2 border-purple-300/50 rounded-full flex justify-center bg-black/20 backdrop-blur-sm">
               <div className="w-1 h-3 bg-purple-300/70 rounded-full mt-2 animate-pulse" />
             </div>
           </div>
@@ -189,13 +195,13 @@ export default function HomePage() {
             </div>
             <div className="group">
               <div className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                500+
+                24h
               </div>
-              <div className="text-xl text-purple-200">Projects Completed</div>
+              <div className="text-xl text-purple-200">Avg. Response Time</div>
             </div>
             <div className="group">
               <div className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                99%
+                100%
               </div>
               <div className="text-xl text-purple-200">Client Satisfaction</div>
             </div>
