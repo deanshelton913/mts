@@ -71,21 +71,68 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mukilteotech.com";
+  const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const orgJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Mukilteo Technical Solutions',
+    url: siteUrl,
+    logo: `${siteUrl}/logo1.png`,
+    email: 'info@mukilteotech.com',
+    sameAs: [],
+  };
+
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Mukilteo Technical Solutions',
+    url: siteUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <html lang="en">
       <head>
-        {/* Google tag (gtag.js) */}
+        {/* Google Ads tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-1005222920"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){dataLayer.push(arguments);} 
             gtag('js', new Date());
             gtag('config', 'AW-1005222920');
           `}
+        </Script>
+        {/* Google Analytics (optional; enabled when NEXT_PUBLIC_GA_MEASUREMENT_ID is set) */}
+        {GA_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);} 
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        ) : null}
+        <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(orgJsonLd)}
+        </Script>
+        <Script id="website-jsonld" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(websiteJsonLd)}
         </Script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
