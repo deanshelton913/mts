@@ -10,10 +10,10 @@ const nextConfig = {
       "default-src 'self'",
       // Allow Next.js inline styles and Tailwind's injected styles
       "style-src 'self' 'unsafe-inline'",
-      // Allow Google Tag scripts
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-      // For script connections
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
+      // Allow Google Tag scripts and conversion tracking
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net",
+      // For script connections and conversion tracking
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net",
       // Images and data URIs used in design
       "img-src 'self' data: https:",
       // Fonts from self
