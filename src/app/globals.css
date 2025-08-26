@@ -31,7 +31,7 @@ html {
   background-color: transparent !important;
 }
 
-/* Ensure our dark sections stay dark even with Dark Reader */
+/* Ensure our dark sections stay dark even with Dark Reader - but don't override intentional white text */
 [class*="bg-gradient-to-br from-purple-900"],
 [class*="bg-black"],
 [class*="bg-purple-900"],
@@ -40,12 +40,13 @@ html {
   filter: none !important;
 }
 
-/* Ensure white text stays white */
-[class*="text-white"],
-[class*="text-purple-100"],
-[class*="text-purple-200"] {
-  color: inherit !important;
-  filter: none !important;
+/* Only override text colors when Dark Reader is active and trying to change them */
+@media (prefers-color-scheme: dark) {
+  [class*="text-white"],
+  [class*="text-purple-100"],
+  [class*="text-purple-200"] {
+    filter: none !important;
+  }
 }
 
 /* Custom scrollbar */

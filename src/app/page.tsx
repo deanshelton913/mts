@@ -218,23 +218,23 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl blur opacity-20" />
-              <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <div className="relative bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 rounded-3xl p-8 shadow-2xl">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
                   Why Choose
-                  <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
                     Mukilteo Tech?
                   </span>
                 </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-purple-100 mb-8 leading-relaxed">
                   With over two decades of experience in the technology industry, we understand the unique challenges small businesses face. Our solutions are designed to be scalable, reliable, and cost-effective.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-center group">
-                      <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                      <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
                         <CheckCircleIcon className="h-5 w-5 text-white" />
                       </div>
-                      <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{benefit}</span>
+                      <span className="text-purple-100 group-hover:text-white transition-colors">{benefit}</span>
                     </div>
                   ))}
                 </div>
