@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import RouteChangeTracker from "@/components/RouteChangeTracker";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -137,6 +138,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <RouteChangeTracker />
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-grow">
