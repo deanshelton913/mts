@@ -73,6 +73,7 @@ export default function RootLayout({
 }>) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mukilteotech.com";
   const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const isProd = process.env.NODE_ENV === 'production';
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -111,8 +112,8 @@ export default function RootLayout({
             gtag('config', 'AW-1005222920');
           `}
         </Script>
-        {/* Google Analytics (optional; enabled when NEXT_PUBLIC_GA_MEASUREMENT_ID is set) */}
-        {GA_ID ? (
+        {/* Google Analytics 4 (loaded in production when GA_ID is set) */}
+        {isProd && GA_ID ? (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

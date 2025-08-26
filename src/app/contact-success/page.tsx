@@ -1,7 +1,35 @@
+'use client';
+
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { CheckCircleIcon, ArrowRightIcon, EnvelopeIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
 
+declare global {
+  interface Window {
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
+  }
+}
+
 export default function ContactSuccessPage() {
+  useEffect(() => {
+    // Track conversion event when page loads
+    if (typeof window !== 'undefined' && window.gtag) {
+      // Google Ads conversion (if you have a conversion action set up)
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-1005222920/contact_form_submission',
+        value: 1.0,
+        currency: 'USD',
+      });
+      
+      // Google Analytics 4 custom event
+      window.gtag('event', 'contact_form_submission', {
+        event_category: 'Contact',
+        event_label: 'Contact Form Success',
+        value: 1,
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -85,7 +113,7 @@ export default function ContactSuccessPage() {
                     <EnvelopeIcon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">Email Us Directly</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us Directly</h3>
                     <a 
                       href="mailto:info@mukilteotech.com" 
                       className="text-purple-600 hover:text-purple-700 font-medium"
@@ -100,12 +128,12 @@ export default function ContactSuccessPage() {
                     <PhoneIcon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">Call Us</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Call Us</h3>
                     <a 
                       href="tel:+1-425-555-0123" 
                       className="text-purple-600 hover:text-purple-700 font-medium"
                     >
-                      (425) 905-4469
+                      (425) 555-0123
                     </a>
                   </div>
                 </div>
@@ -115,7 +143,7 @@ export default function ContactSuccessPage() {
                     <ClockIcon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">Business Hours</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Business Hours</h3>
                     <p className="text-gray-600">Monday - Friday: 9AM - 6PM PST</p>
                   </div>
                 </div>
