@@ -2,9 +2,41 @@ import { NextResponse } from 'next/server';
 import { sendEmail } from '@/lib/email/sendgrid';
 
 const EMAIL_TO = process.env.EMAIL_TO || 'info@mukilteotech.com';
-const EMAIL_FROM = process.env.SENDGRID_FROM || process.env.EMAIL_FROM || 'Mukilteo Technical Solutions <no-reply@mukilteotech.com>';
+const DEFAULT_FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || process.env.EMAIL_FROM || 'info@mukilteotech.com';
+const DEFAULT_FROM_NAME = process.env.SENDGRID_FROM_NAME || 'Mukilteo Technical Solutions';
+
+// Very simple in-memory rate limiter: 5 requests per 60s per IP (resets on server restart)
+const RATE_LIMIT_WINDOW_MS = 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const ipHits = new Map<string, { count: number; resetAt: number }>();
+
+function getClientIp(req: Request) {
+  const forwarded = req.headers.get('x-forwarded-for');
+  if (forwarded) return forwarded.split(',')[0].trim();
+  return 'unknown';
+}
+
+function rateLimit(req: Request) {
+  const ip = getClientIp(req);
+  const now = Date.now();
+  const entry = ipHits.get(ip);
+  if (!entry || now > entry.resetAt) {
+    ipHits.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true } as const;
+  }
+  if (entry.count >= RATE_LIMIT_MAX) {
+    const retryAfter = Math.ceil((entry.resetAt - now) / 1000);
+    return { allowed: false, retryAfter } as const;
+  }
+  entry.count += 1;
+  return { allowed: true } as const;
+}
 
 export async function POST(request: Request) {
+  const rl = rateLimit(request);
+  if (!rl.allowed) {
+    return NextResponse.json({ ok: false, error: 'Too many requests' }, { status: 429, headers: { 'Retry-After': String(rl.retryAfter) } });
+  }
   try {
     const body = await request.json();
     const { name, email, phone, company, message } = body || {};
@@ -41,8 +73,10 @@ export async function POST(request: Request) {
 
     const result = await sendEmail({
       to: EMAIL_TO,
-      from: EMAIL_FROM,
-      replyTo: email,
+      fromEmail: DEFAULT_FROM_EMAIL,
+      fromName: DEFAULT_FROM_NAME,
+      replyToEmail: email,
+      replyToName: name,
       subject,
       text,
       html,

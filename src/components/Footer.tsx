@@ -71,7 +71,7 @@ export default function Footer() {
               </p>
               <p>
                 <a href="tel:+1-425-555-0123" className="hover:text-white transition-colors">
-                  (425) 555-0123
+                  (425) 905-4469
                 </a>
               </p>
             </div>

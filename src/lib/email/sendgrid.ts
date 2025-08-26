@@ -1,7 +1,8 @@
 import sgMail from '@sendgrid/mail';
 
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-const SENDGRID_FROM = process.env.SENDGRID_FROM || 'Mukilteo Technical Solutions <info@mukilteotech.com>';
+const DEFAULT_FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'info@mukilteotech.com';
+const DEFAULT_FROM_NAME = process.env.SENDGRID_FROM_NAME || 'Mukilteo Technical Solutions';
 
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY);
@@ -14,8 +15,10 @@ export type SendEmailOptions = {
   subject: string;
   text?: string;
   html?: string;
-  replyTo?: string;
-  from?: string;
+  replyToEmail?: string;
+  replyToName?: string;
+  fromEmail?: string;
+  fromName?: string;
 };
 
 export async function sendEmail(options: SendEmailOptions) {
@@ -25,11 +28,11 @@ export async function sendEmail(options: SendEmailOptions) {
 
   const msg = {
     to: options.to,
-    from: options.from || SENDGRID_FROM,
+    from: { email: options.fromEmail || DEFAULT_FROM_EMAIL, name: options.fromName || DEFAULT_FROM_NAME },
     subject: options.subject,
     text: options.text,
     html: options.html,
-    replyTo: options.replyTo,
+    replyTo: options.replyToEmail ? { email: options.replyToEmail, name: options.replyToName } : undefined,
   } as sgMail.MailDataRequired;
 
   try {

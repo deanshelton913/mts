@@ -131,7 +131,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors text-gray-900 placeholder-gray-500"
-                      placeholder="(425) 555-0123"
+                      placeholder="(425) 905-4469"
                     />
                   </div>
                   <div>
@@ -203,7 +203,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600 mb-2">(425) 555-0123</p>
+                    <p className="text-gray-600 mb-2">(425) 905-4469</p>
                     <p className="text-sm text-gray-500">Monday - Friday, 9AM - 6PM</p>
                   </div>
                 </div>
