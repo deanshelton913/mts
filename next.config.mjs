@@ -11,9 +11,9 @@ const nextConfig = {
       // Allow Next.js inline styles and Tailwind's injected styles
       "style-src 'self' 'unsafe-inline'",
       // Allow Google Tag scripts and conversion tracking
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com",
       // For script connections and conversion tracking
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com",
       // Images and data URIs used in design
       "img-src 'self' data: https:",
       // Fonts from self
