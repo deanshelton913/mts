@@ -74,6 +74,7 @@ export default function RootLayout({
 }>) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mukilteotech.com";
   const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -99,36 +100,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Ads tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-1005222920"
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);} 
-            gtag('js', new Date());
-            gtag('config', 'AW-1005222920');
-          `}
-        </Script>
-        {/* Google Analytics 4 (loaded when GA_ID is set) */}
-        {GA_ID ? (
+        {/* Google tag (gtag.js) - consolidated for both Ads and Analytics */}
+        {(ADS_ID || GA_ID) && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${ADS_ID || GA_ID}`}
               strategy="afterInteractive"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-tag" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);} 
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${GA_ID}');
+                ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ''}
+                ${GA_ID ? `gtag('config', '${GA_ID}');` : ''}
               `}
             </Script>
           </>
-        ) : null}
+        )}
         <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(orgJsonLd)}
         </Script>
