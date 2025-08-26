@@ -100,6 +100,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="color-scheme" content="light" />
         {/* Google tag (gtag.js) - consolidated for both Ads and Analytics */}
         {(ADS_ID || GA_ID) && (
           <>

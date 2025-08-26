@@ -5,19 +5,47 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Remove the dark mode media query that was causing conflicts */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
+  /* Force light color scheme to prevent browser dark mode interference */
+  color-scheme: light;
+}
+
+/* Prevent Dark Reader from interfering with our custom dark theme */
+html {
+  /* Tell Dark Reader this site already has a dark theme */
+  filter: none !important;
+  background-color: transparent !important;
+}
+
+/* Ensure our dark sections stay dark even with Dark Reader */
+[class*="bg-gradient-to-br from-purple-900"],
+[class*="bg-black"],
+[class*="bg-purple-900"],
+[class*="bg-blue-900"] {
+  background-color: inherit !important;
+  filter: none !important;
+}
+
+/* Ensure white text stays white */
+[class*="text-white"],
+[class*="text-purple-100"],
+[class*="text-purple-200"] {
+  color: inherit !important;
+  filter: none !important;
 }
 
 /* Custom scrollbar */
